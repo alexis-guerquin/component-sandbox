@@ -1,0 +1,29 @@
+:root {
+  /* POMOGRIND COLOR PALETTE*/
+
+  /* === Brown palette === */
+  --brown-50: #f8f5f2;
+  --brown-100: #eae3db;
+  --brown-200: #d4c4b3;
+  --brown-300: #bea48b;
+  --brown-400: #a98467;
+  --brown-500: #a2765e;
+  --brown-600: #8e6151;
+  --brown-700: #774d46;
+  --brown-800: #63403d;
+  --brown-900: #533634;
+  --brown-950: #2d1c1b;
+  
+  /* === Green palette === */
+  --green-50: #f9fbf4;
+  --green-100: #f2f5e8;
+  --green-200: #e7ecd2;
+  --green-300: #cfdaab;
+  --green-400: #c6d2a0;
+  --green-500: #adc178;
+  --green-600: #8faa4a;
+  --green-700: #6e833e;
+  --green-800: #596a36;
+  --green-900: #4e5b34;
+  --green-950: #283017;
+}

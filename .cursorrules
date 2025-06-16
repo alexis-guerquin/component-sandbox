@@ -1,0 +1,240 @@
+{
+  "rules": [
+    {
+      "name": "Component Structure",
+      "pattern": "src/components/**/*",
+      "rules": [
+        {
+          "name": "Component Files",
+          "files": [
+            "[A-Z][a-zA-Z]*.tsx",
+            "[A-Z][a-zA-Z]*.test.tsx",
+            "[A-Z][a-zA-Z]*.stories.tsx",
+            "[A-Z][a-zA-Z]*.module.css",
+            "index.ts"
+          ],
+          "naming": {
+            "components": "PascalCase",
+            "props": "PascalCaseProps",
+            "folders": "PascalCase"
+          },
+          "componentRules": {
+            "required": [
+              "propsInterface",
+              "typedState",
+              "functionalComponent",
+              "defaultProps",
+              "isolatedStyles"
+            ],
+            "forbidden": [
+              "businessLogic",
+              "genericNames",
+              "globalStyles"
+            ],
+            "patterns": {
+              "propsInterface": "^interface [A-Z][a-zA-Z]*Props",
+              "stateType": "^const \\[.*\\] = useState<[A-Z][a-zA-Z]*>",
+              "refType": "^const .* = useRef<[A-Z][a-zA-Z]*>",
+              "defaultProps": "^const defaultProps = {"
+            }
+          },
+          "testRules": {
+            "required": [
+              "rtl",
+              "renderTests",
+              "interactionTests",
+              "edgeCases",
+              "accessibilityTests"
+            ],
+            "forbidden": [
+              "snapshots",
+              "implementationDetails"
+            ],
+            "patterns": {
+              "testFile": "^[A-Z][a-zA-Z]*\\.test\\.tsx$",
+              "testName": "^test\\(['\"].*['\"]",
+              "rtlImport": "^import \\{ render, screen, fireEvent \\} from '@testing-library/react'",
+              "jestMock": "^const mockFn = jest\\.fn\\(\\)",
+              "ariaTest": "getByRole|getByLabelText|getByTestId"
+            }
+          },
+          "documentationRules": {
+            "storybook": {
+              "required": [
+                "storiesFile",
+                "propsDocumentation",
+                "variantsGrouping",
+                "autoDocs"
+              ],
+              "patterns": {
+                "storiesFile": "^[A-Z][a-zA-Z]*\\.stories\\.tsx$",
+                "argsDefinition": "^const args = {",
+                "variantsExport": "^export const [A-Z][a-zA-Z]* = {",
+                "autoDocsTag": "tags: \\['autodocs'\\]"
+              }
+            },
+            "standalone": {
+              "required": [
+                "componentPage",
+                "responsivePreview",
+                "propsTable",
+                "testLinks",
+                "lastUpdate",
+                "testResults"
+              ],
+              "patterns": {
+                "pageFile": "^[A-Z][a-zA-Z]*Page\\.tsx$",
+                "propsTable": "<table.*props.*>",
+                "testLink": "href=.*test",
+                "lastUpdate": "Dernière mise à jour:"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Page Components",
+      "pattern": "src/pages/components/**/*",
+      "rules": [
+        {
+          "name": "Page Files",
+          "files": ["[A-Z][a-zA-Z]*Page.tsx"],
+          "naming": {
+            "components": "PascalCase",
+            "props": "PascalCaseProps",
+            "folders": "PascalCase"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Utils",
+      "pattern": "src/utils/**/*",
+      "rules": [
+        {
+          "name": "Utility Files",
+          "files": ["[a-z][a-zA-Z]*.ts"],
+          "naming": {
+            "files": "camelCase"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hooks",
+      "pattern": "src/hooks/**/*",
+      "rules": [
+        {
+          "name": "Hook Files",
+          "files": ["use[A-Z][a-zA-Z]*.ts"],
+          "naming": {
+            "files": "usePascalCase"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Types",
+      "pattern": "src/types/**/*",
+      "rules": [
+        {
+          "name": "Type Files",
+          "files": ["*.ts"],
+          "naming": {
+            "interfaces": "PascalCase",
+            "types": "PascalCase",
+            "enums": "PascalCase"
+          }
+        }
+      ]
+    }
+  ],
+  "ignore": [
+    "node_modules/**",
+    "dist/**",
+    "build/**",
+    ".git/**",
+    "*.log",
+    "*.lock"
+  ],
+  "namingConventions": {
+    "components": {
+      "pattern": "^[A-Z][a-zA-Z]*$",
+      "description": "PascalCase pour les composants React"
+    },
+    "props": {
+      "pattern": "^[A-Z][a-zA-Z]*Props$",
+      "description": "PascalCase suivi de 'Props' pour les interfaces de props"
+    },
+    "hooks": {
+      "pattern": "^use[A-Z][a-zA-Z]*$",
+      "description": "Commence par 'use' suivi de PascalCase pour les hooks"
+    },
+    "utils": {
+      "pattern": "^[a-z][a-zA-Z]*$",
+      "description": "camelCase pour les utilitaires"
+    },
+    "folders": {
+      "pattern": "^[A-Z][a-zA-Z]*$",
+      "description": "PascalCase pour les dossiers"
+    }
+  },
+  "reactGuidelines": {
+    "componentRules": {
+      "required": {
+        "propsTyping": "Toujours typer les props avec une interface ou type",
+        "stateTyping": "Toujours typer les valeurs de useState, useRef, etc.",
+        "functionalComponents": "Préférer des composants fonctionnels",
+        "componentExtraction": "Extraire les composants complexes en sous-composants",
+        "stateless": "Rester stateless autant que possible",
+        "pureComponents": "Préférer les composants purs et isolés",
+        "defaultProps": "Définir des valeurs par défaut pour les props non obligatoires"
+      },
+      "forbidden": {
+        "businessLogic": "Pas de logique métier dans le composant (déplacer dans un hook ou utils)",
+        "genericNames": "Pas de noms génériques comme data, item, value sans contexte",
+        "globalStyles": "Pas de CSS global (favoriser modules ou styles isolés)"
+      }
+    },
+    "testGuidelines": {
+      "required": {
+        "rtl": "Utiliser React Testing Library",
+        "renderTests": "Tester le rendu des composants",
+        "interactionTests": "Tester les interactions utilisateur",
+        "edgeCases": "Tester les cas limites",
+        "accessibilityTests": "Tester l'accessibilité (role, label, aria)"
+      },
+      "forbidden": {
+        "snapshots": "Éviter les snapshots pour les composants qui changent souvent",
+        "implementationDetails": "Ne pas tester les détails d'implémentation"
+      },
+      "patterns": {
+        "testLocation": "Les tests doivent être dans le même dossier que le composant",
+        "mockFunctions": "Utiliser jest.fn() pour simuler les callbacks",
+        "testStructure": "Organiser les tests par fonctionnalité"
+      }
+    },
+    "documentationGuidelines": {
+      "storybook": {
+        "required": {
+          "storiesFile": "Créer un fichier ComponentName.stories.tsx à côté du composant",
+          "propsDocumentation": "Documenter tous les props avec args",
+          "variantsGrouping": "Regrouper les variantes dans des exports clairs",
+          "autoDocs": "Ajouter tags: ['autodocs'] pour la génération automatique"
+        }
+      },
+      "standalone": {
+        "required": {
+          "componentPage": "Créer une page dédiée /pages/components/ComponentNamePage.tsx",
+          "responsivePreview": "Inclure un aperçu responsive",
+          "propsTable": "Documenter les props en liste ou tableau",
+          "testLinks": "Inclure des liens vers les tests",
+          "lastUpdate": "Indiquer la dernière mise à jour",
+          "testResults": "Afficher les résultats des tests",
+          "storybookLink": "Lien vers Storybook si disponible"
+        }
+      }
+    }
+  }
+} 
