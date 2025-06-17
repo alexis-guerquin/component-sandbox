@@ -1,0 +1,169 @@
+.quests {
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-radius: 50% 50% 0 50%;
+  border: 4px solid;
+  transition: all 0.7s ease-in-out;
+  margin: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.quests h3 {
+  margin: 0;
+}
+
+.quests.none {
+  opacity: .8;
+}
+.quests.flex{
+  display: flex;
+}
+
+.quests.expanded {
+  width: calc(100% - 1.25rem);
+  height: calc(100% - 1.25rem);
+  border-radius: 10px 10px 0 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: default;
+  box-sizing: border-box;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon img {
+  width: 3rem;
+  height: 3rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.content h3 {
+  text-align: center;
+  font-size: 1.25rem;
+}
+.basic h3 {
+  color: white;
+}
+.active h3 {
+  color: white;
+}
+
+.content ul {
+  margin: 10px 0 0;
+  padding-left: 20px;
+}
+
+.svgIcon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: invert(1);
+}
+
+.basic {
+  border-color: white;
+  background-color: var(--green-400);
+}
+
+.active {
+  border-color: var(--brown-900);
+  background-color: var(--brown-300);
+}
+.active img {
+  filter: brightness(0) saturate(100%) invert(6%) sepia(7%) saturate(5278%) hue-rotate(316deg) brightness(97%) contrast(86%);
+}
+.active.quests.expanded {
+  background-color: transparent;
+}
+
+.closeButton {
+  position: absolute;
+  top: -0.25rem;
+  right: 0.75rem;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  z-index: 2;
+  padding: 0.25rem;
+  line-height: 1;
+}
+
+.progressWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.globalBar {
+  flex: 1;
+  height: 0.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.globalFill {
+  height: 100%;
+  background: white;
+  border-radius: 0.25rem;
+  transition: width 0.3s ease;
+}
+
+.questList {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.questList > div {
+  cursor: pointer;
+}
+
+.rewardSection {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+.rewardButton {
+  background: var(--brown-600);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  transition: background 0.3s;
+}
+
+.rewardButton:hover {
+  background: var(--brown-700);
+}
