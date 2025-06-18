@@ -4,6 +4,7 @@ import { useState } from "react";
 import QuestItem from "../Quest/QuestItem";
 import { useQuest } from "../../../contexts/QuestContext";
 import type { QuestKey, Quest } from "../../../types/QuestTypes";
+import questIcon from "../../../assets/quest.svg";
 import styles from "./DailyQuest.module.css";
 
 interface DailyQuestProps {
@@ -29,6 +30,14 @@ const DailyQuest: React.FC<DailyQuestProps> = ({ style }) => {
   const maxProgress = 4;
   const progressPercent = (progressCount / maxProgress) * 100;
 
+  // Vérifier s'il y a des quêtes prêtes à être récupérées
+  const hasQuestsToClaim = QUESTS.some(({ key, goal }) => 
+    !completedQuests.includes(key) && progress[key] >= goal
+  );
+
+  // Appliquer la classe jaune s'il y a des quêtes à récupérer
+  const shouldShowYellow = hasQuestsToClaim;
+
   const handleQuestClick = (key: QuestKey) => {
     if (!completedQuests.includes(key)) {
       setCompletedQuests((prev) => [...prev, key]);
@@ -41,7 +50,7 @@ const DailyQuest: React.FC<DailyQuestProps> = ({ style }) => {
   };
 
   return (
-      <div className={`${styles.basic} ${styles.quests} ${expanded ? styles.expanded : ""} ${styles[colorClass]}`}>
+      <div className={`${styles.basic} ${styles.quests} ${expanded ? styles.expanded : ""} ${styles[colorClass]} ${shouldShowYellow ? styles.completed : ""}`}>
         {expanded ? (
           <div className={styles.content}>
             <button className={styles.closeButton} onClick={() => setExpanded(false)}>
@@ -92,7 +101,7 @@ const DailyQuest: React.FC<DailyQuestProps> = ({ style }) => {
           </div>
         ) : (
           <div className={styles.icon} onClick={() => setExpanded(true)}>
-            <img src="./assets/svg/icons/quest.svg" alt="Missions" className={styles.svgIcon} />
+            <img src={questIcon} alt="Missions" className={styles.svgIcon} />
           </div>
         )}
       </div>

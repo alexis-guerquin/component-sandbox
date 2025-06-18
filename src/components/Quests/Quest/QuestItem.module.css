@@ -16,15 +16,20 @@
     background-color: var(--brown-400);
     border-color: var(--brown-600);
     cursor: pointer;
+    transition: all ease 0.1s;
+    box-shadow: 0px 5px 0px 0px var(--brown-600);
   }
-  .quest.done img {
-    filter: brightness(0) saturate(100%) invert(23%) sepia(3%) saturate(6005%) hue-rotate(315deg) brightness(87%) contrast(88%);
+
+  .quest.done:active {
+    transform: translateY(5px);
+    box-shadow: 0px 0px 0px 0px var(--brown-600);
   }
   
   .quest.pending {
     background-color: var(--green-200);
     color: var(--green-600);
   }
+
   .quest.pending img {
     filter: brightness(0) saturate(100%) invert(88%) sepia(11%) saturate(1277%) hue-rotate(28deg) brightness(86%) contrast(83%);
   }
@@ -38,9 +43,10 @@
   }
   
   .info {
-    margin-left: 0.75rem;
+    margin-left: 0.5rem;
     flex: 1;
     min-width: 0;
+    text-align: left;
   }
   
   .info h4,
@@ -48,13 +54,9 @@
     margin: 0;
     font-size: 0.875rem;
     line-height: 1.2;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
   }
   
   .info h4 {
-    font-size: 1rem;
     margin-bottom: 0.25rem;
   }
   
@@ -84,6 +86,9 @@
     height: 100%;
     border-radius: 0.25rem;
     transition: width 0.3s;
+    background-color: var(--green-600);
+  }
+
+  .quest.done .fill {
     background-color: var(--brown-900);
   }
-  
