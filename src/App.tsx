@@ -2,6 +2,7 @@ import './App.css';
 import DailyQuest from './components/Quests/DailyQuest/DailyQuest';
 import { QuestProvider } from './contexts/QuestContext';
 import ComponentTester from './components/Quests/ComponentTester/ComponentTester';
+import SoundTester from './components/SoundTester/SoundTester';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           />
         </div>
       </QuestProvider>
+      <SoundTester />
     </div>
   );
 }
