@@ -41,11 +41,13 @@ const DailyQuest: React.FC<DailyQuestProps> = ({ style }) => {
   const handleQuestClick = (key: QuestKey) => {
     if (!completedQuests.includes(key)) {
       setCompletedQuests((prev) => [...prev, key]);
+      // alert("congrats")
     }
   };
 
   const handleClaimReward = () => {
     setRewardClaimed(true);
+    alert("congrats, you've completed all daily quests")
     // ici tu pourrais déclencher une animation ou logique de récompense réelle
   };
 
@@ -72,8 +74,20 @@ const DailyQuest: React.FC<DailyQuestProps> = ({ style }) => {
               </div>
             ) : (
               <div className={styles.questList}>
-                {QUESTS.map(({ key, icon, title, goal }) =>
-                  !completedQuests.includes(key) ? (
+                {QUESTS
+                  .filter(({ key }) => !completedQuests.includes(key))
+                  .sort((a, b) => {
+                    const aIsDone = progress[a.key] >= a.goal;
+                    const bIsDone = progress[b.key] >= b.goal;
+                    
+                    // Les quêtes terminées apparaissent en premier
+                    if (aIsDone && !bIsDone) return -1;
+                    if (!aIsDone && bIsDone) return 1;
+                    
+                    // Si les deux sont dans le même état, garder l'ordre original
+                    return 0;
+                  })
+                  .map(({ key, icon, title, goal }) =>
                     progress[key] >= goal ? (
                       <div key={key} onClick={() => handleQuestClick(key)}>
                         <QuestItem
@@ -82,6 +96,7 @@ const DailyQuest: React.FC<DailyQuestProps> = ({ style }) => {
                           goal={goal}
                           progress={progress[key]}
                           done={true}
+                          enableSound={true}
                         />
                       </div>
                     ) : (
@@ -92,10 +107,10 @@ const DailyQuest: React.FC<DailyQuestProps> = ({ style }) => {
                         goal={goal}
                         progress={progress[key]}
                         done={false}
+                        enableSound={true}
                       />
                     )
-                  ) : null
-                )}
+                  )}
               </div>
             )}
           </div>
