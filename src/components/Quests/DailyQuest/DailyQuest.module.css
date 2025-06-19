@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: white
+  color: white;
 }
 
 .quests h3 {
@@ -145,31 +145,7 @@
   cursor: pointer;
 }
 
-.rewardSection {
-  text-align: center;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 0.5rem;
-  margin: 1rem 0;
-}
-
-.rewardButton {
-  background: var(--brown-600);
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-size: 0.875rem;
-  margin-top: 0.5rem;
-  transition: background 0.3s;
-}
-
-.rewardButton:hover {
-  background: var(--brown-700);
-}
-
 .completed {
-  background-color: rgb(255, 234, 115);
-  border-color: rgb(255, 194, 115);
+  /* background-color: var(--green-300); */
+  border-color: var(--green-800);
 }
