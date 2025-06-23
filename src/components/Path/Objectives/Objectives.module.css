@@ -1,0 +1,34 @@
+.objectivesContainer {
+  position: relative;
+  width: 100%;
+  /* La hauteur sera calculée automatiquement par l'aspect ratio */
+}
+
+.objectiveButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  scale: 1.4;
+}
+
+.gridTile {
+  width: 100%;
+  height: 100%;
+  transition: all 0.2s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .objectiveButton {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 480px) {
+  .objectiveButton {
+    transform: scale(0.8);
+  }
+} 
