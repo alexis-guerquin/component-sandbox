@@ -1,47 +1,95 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Objectives.module.css';
 import ThreeDButton from '../../Buttons/3DButton/3dbutton';
+import { FaPlus } from 'react-icons/fa';
 
 export interface ObjectivesProps {
-  tileColor?: string;
-  backgroundColor?: string;
-  buttonText?: string;
   onObjectiveClick?: (position: number) => void;
-  className?: string;
 }
 
 const defaultProps: ObjectivesProps = {
-//   tileColor: '#4a90e2',
-//   backgroundColor: '#f5f5f5',
-  buttonText: 'w',
   onObjectiveClick: () => {},
-  className: '',
 };
 
+// Interface pour les données d'objectif
+interface ObjectiveData {
+  id: number;
+  title: string;
+  description: string;
+  position: [number, number];
+  icon?: React.ReactNode;
+}
+
 const Objectives: React.FC<ObjectivesProps> = ({
-//   tileColor = defaultProps.tileColor!,
-  backgroundColor = defaultProps.backgroundColor!,
-  buttonText = defaultProps.buttonText!,
   onObjectiveClick = defaultProps.onObjectiveClick!,
-  className = defaultProps.className!,
 }) => {
-  const objectivePositions = [
-    [1, 9],
-    [5, 12],
-    [9, 14],
-    [13, 12],
-    [17, 9],
-    [21, 6],
-    [25, 9],
-    [29, 12],
-    [33, 14],
-    [37, 12],
-    [41, 9],
-    [45, 6],
-    [49, 9],
+  const [activeTooltip, setActiveTooltip] = useState<number | null>(null);
+
+  // Données des objectifs avec descriptions
+  const objectivesData: ObjectiveData[] = [
+    {
+      id: 0,
+      title: "Objectif 1",
+      description: "Premier objectif à accomplir dans votre parcours d'apprentissage",
+      icon: <FaPlus />,
+      position: [7, 1]
+    },
+    {
+      id: 1,
+      title: "Objectif 2", 
+      description: "Deuxième étape vers la maîtrise des compétences",
+      icon: <FaPlus />,
+      position: [5, 4]
+    },
+    {
+      id: 2,
+      title: "Objectif 3",
+      description: "Troisième objectif pour progresser dans votre formation",
+      icon: <FaPlus />,
+      position: [4, 7]
+    },
+    {
+      id: 3,
+      title: "Objectif 4",
+      description: "Quatrième étape de votre parcours d'apprentissage", 
+      icon: <FaPlus />,
+      position: [5, 10]
+    },
+    {
+      id: 4,
+      title: "Objectif 5",
+      description: "Cinquième objectif pour approfondir vos connaissances",
+      icon: <FaPlus />,
+      position: [7, 13]
+    },
+    {
+      id: 5,
+      title: "Objectif 6",
+      description: "Sixième étape vers l'excellence dans votre domaine",
+      icon: <FaPlus />,
+      position: [9, 10]
+    },
+    {
+      id: 6,
+      title: "Objectif 7",
+      description: "Septième objectif pour perfectionner vos compétences",
+      icon: <FaPlus />,
+      position: [10, 7]
+    },
+    {
+      id: 7,
+      title: "Objectif 8",
+      description: "Dernier objectif pour compléter votre formation",
+      icon: <FaPlus />,
+      position: [9, 4]
+    }
   ];
 
+  const objectivePositions = objectivesData.map(obj => obj.position);
+
   const handleObjectiveClick = (position: number) => {
+    // Basculer l'affichage de la bulle
+    setActiveTooltip(activeTooltip === position ? null : position);
     onObjectiveClick(position);
   };
 
@@ -54,7 +102,6 @@ const Objectives: React.FC<ObjectivesProps> = ({
   const gridCols = maxCol + 3; // +3 pour la marge
 
   const containerStyle: React.CSSProperties = {
-    backgroundColor,
     display: 'grid',
     gridTemplateColumns: `repeat(${gridCols}, ${100 / gridCols}%)`,
     gridTemplateRows: `repeat(${gridRows}, ${100 / gridRows}%)`,
@@ -63,25 +110,53 @@ const Objectives: React.FC<ObjectivesProps> = ({
     aspectRatio: `${gridCols}/${gridRows}`,
   };
 
+  // Composant de bulle de description
+  const Tooltip: React.FC<{ objective: ObjectiveData; isVisible: boolean }> = ({ objective, isVisible }) => {
+    if (!isVisible) return null;
+
+    const tooltipStyle: React.CSSProperties = {
+      top: `${(objective.position[0] / gridRows) * 100 - 5}%`,
+      left: `${(objective.position[1] / gridCols) * 100 + 3}%`,
+      transform: 'translate(-50%, -100%)',
+    };
+
+    return (
+      <div 
+        className={styles.tooltip} 
+        style={tooltipStyle} 
+        data-testid={`tooltip-${objective.id}`}
+      >
+        <div className={styles.tooltipTitle}>
+          {objective.title}
+        </div>
+        <div className={styles.tooltipDescription}>
+          {objective.description}
+        </div>
+        <div className={styles.tooltipArrow}></div>
+      </div>
+    );
+  };
+
   // Créer un tableau d'éléments basé sur les dimensions calculées
   const gridItems = Array.from({ length: gridRows * gridCols }, (_, index) => {
     const row = Math.floor(index / gridCols);
     const col = index % gridCols;
     
     // Vérifier si cette position contient un objectif
-    const objectiveIndex = objectivePositions.findIndex(([r, c]) => r === row && c === col);
+    const objectiveData = objectivesData.find((obj) => obj.position[0] === row && obj.position[1] === col);
     
-    if (objectiveIndex !== -1) {
+    if (objectiveData) {
       return (
         <div
-          key={`objective-${objectiveIndex}`}
+          key={`objective-${objectiveData.id}`}
           className={styles.objectiveButton}
-          data-testid={`objective-button-${objectiveIndex}`}
+          data-testid={`objective-button-${objectiveData.id}`}
         >
           <ThreeDButton
-            text={buttonText}
+            text={""}
+            icon={objectiveData.icon}
             variant="round"
-            onClick={() => handleObjectiveClick(objectiveIndex)}
+            onClick={() => handleObjectiveClick(objectiveData.id)}
             enableSound={true}
           />
         </div>
@@ -93,8 +168,6 @@ const Objectives: React.FC<ObjectivesProps> = ({
       width: '100%',
       height: '100%',
       aspectRatio: '1/1',
-    //   border: '1px solid rgba(0, 0, 0, 0.1)',
-    //   backgroundColor: index % 2 === 0 ? tileColor : backgroundColor,
     };
     
     return (
@@ -109,10 +182,17 @@ const Objectives: React.FC<ObjectivesProps> = ({
 
   return (
     <div 
-      className={`${styles.objectivesContainer} ${className}`}
+      className={`${styles.objectivesContainer}`}
       style={containerStyle}
     >
       {gridItems}
+      {objectivesData.map((objective) => (
+        <Tooltip
+          key={`tooltip-${objective.id}`}
+          objective={objective}
+          isVisible={activeTooltip === objective.id}
+        />
+      ))}
     </div>
   );
 };
