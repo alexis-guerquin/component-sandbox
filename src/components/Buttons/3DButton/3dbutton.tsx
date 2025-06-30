@@ -3,12 +3,15 @@ import styles from './3dbutton.module.css';
 import { playClickSound } from '../../../utils/soundUtils';
 import type { IconType } from 'react-icons';
 
+type ButtonState = 'locked' | 'doable' | 'done';
+
 interface ThreeDButtonProps {
   onClick?: () => void;
   text: string;
   enableSound?: boolean;
   variant?: 'rectangle' | 'round';
   icon?: React.ReactNode | IconType;
+  state?: ButtonState;
 }
 
 const ThreeDButton: React.FC<ThreeDButtonProps> = ({
@@ -17,6 +20,7 @@ const ThreeDButton: React.FC<ThreeDButtonProps> = ({
   enableSound = false,
   variant = 'rectangle',
   icon,
+  state = 'doable',
 }) => {
   const handleClick = () => {
     if (enableSound) {
@@ -25,7 +29,9 @@ const ThreeDButton: React.FC<ThreeDButtonProps> = ({
     onClick?.();
   };
 
-  const buttonClass = variant === 'round' ? styles.tdbuttonRound : styles.tdbutton;
+  const baseButtonClass = variant === 'round' ? styles.tdbuttonRound : styles.tdbutton;
+  const stateClass = styles[`tdbutton${state.charAt(0).toUpperCase() + state.slice(1)}`];
+  const buttonClass = `${baseButtonClass} ${stateClass}`;
 
   const renderIcon = () => {
     if (!icon) return null;
@@ -40,6 +46,7 @@ const ThreeDButton: React.FC<ThreeDButtonProps> = ({
     <button
       className={buttonClass}
       onClick={handleClick}
+      disabled={state === 'locked'}
     >
       {renderIcon()}
       {text}
