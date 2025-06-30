@@ -24,35 +24,78 @@
 .tooltip {
   position: absolute;
   z-index: 1000;
-  background: var(--brown-900);
-  color: white;
   padding: 12px 16px;
   border-radius: 12px;
   font-size: 14px;
   min-width: 200px;
   max-width: 280px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  border: 1px solid var(--brown-900);
+  box-shadow: var(--common-box-shadow);
+  border: 1px solid;
   backdrop-filter: blur(10px);
   animation: tooltipFadeIn 0.3s ease-out;
   transform-origin: bottom center;
 }
 
+/* Tooltip pour l'état doable (marron) */
+.tooltipDoable {
+  background: var(--brown-50);
+  border-color: var(--brown-900);
+  color: white;
+}
+
+.tooltipDoable .tooltipTitle {
+  color: var(--brown-950);
+}
+
+.tooltipDoable .tooltipDescription {
+  color: var(--brown-800);
+}
+
+/* Tooltip pour l'état done (vert) */
+.tooltipDone {
+  background: var(--green-50);
+  border-color: var(--green-600);
+  color: var(--green-950);
+}
+
+.tooltipDone .tooltipTitle {
+  color: var(--green-900);
+}
+
+.tooltipDone .tooltipDescription {
+  color: var(--green-700);
+}
+
+/* Tooltip pour l'état locked (gris) */
+.tooltipLocked {
+  background: #6c757d;
+  border-color: #6c757d;
+  color: white;
+}
+
+.tooltipLocked .tooltipTitle {
+  color: #f8f9fa;
+}
+
+.tooltipLocked .tooltipDescription {
+  color: #dee2e6;
+}
+
 .tooltipTitle {
   font-weight: 600;
   margin-bottom: 6px;
-  color: #ecf0f1;
+  /* color: #ecf0f1; */
   font-size: 15px;
 }
 
 .tooltipDescription {
   line-height: 1.4;
-  color: #bdc3c7;
+  /* color: #bdc3c7; */
 }
 
 .tooltipArrow {
   position: absolute;
-  bottom: -8px;
+  bottom: -9px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
@@ -60,6 +103,21 @@
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-top: 8px solid var(--brown-950);
+}
+
+/* Flèche pour l'état doable (marron) */
+.tooltipArrowDoable {
+  border-top-color: var(--brown-900);
+}
+
+/* Flèche pour l'état done (vert) */
+.tooltipArrowDone {
+  border-top-color: var(--green-600);
+}
+
+/* Flèche pour l'état locked (gris) */
+.tooltipArrowLocked {
+  border-top-color: #6c757d;
 }
 
 /* Animation d'apparition de la bulle */

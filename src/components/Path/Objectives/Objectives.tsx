@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Objectives.module.css';
 import ThreeDButton from '../../Buttons/3DButton/3dbutton';
-import { FaPlus } from 'react-icons/fa';
+import { FaPlus, FaLock, FaCheck } from 'react-icons/fa';
 
 export interface ObjectivesProps {
   onObjectiveClick?: (position: number) => void;
@@ -11,12 +11,16 @@ const defaultProps: ObjectivesProps = {
   onObjectiveClick: () => {},
 };
 
+// Type pour l'état des objectifs
+type ObjectiveState = 'locked' | 'doable' | 'done';
+
 // Interface pour les données d'objectif
 interface ObjectiveData {
   id: number;
   title: string;
   description: string;
   position: [number, number];
+  state: ObjectiveState;
   icon?: React.ReactNode;
 }
 
@@ -25,19 +29,21 @@ const Objectives: React.FC<ObjectivesProps> = ({
 }) => {
   const [activeTooltip, setActiveTooltip] = useState<number | null>(null);
 
-  // Données des objectifs avec descriptions
+  // Données des objectifs avec descriptions et états
   const objectivesData: ObjectiveData[] = [
     {
       id: 0,
       title: "Objectif 1",
       description: "Premier objectif à accomplir dans votre parcours d'apprentissage",
-      icon: <FaPlus />,
+      state: 'done',
+      icon: <FaCheck />,
       position: [7, 1]
     },
     {
       id: 1,
       title: "Objectif 2", 
       description: "Deuxième étape vers la maîtrise des compétences",
+      state: 'doable',
       icon: <FaPlus />,
       position: [5, 4]
     },
@@ -45,6 +51,7 @@ const Objectives: React.FC<ObjectivesProps> = ({
       id: 2,
       title: "Objectif 3",
       description: "Troisième objectif pour progresser dans votre formation",
+      state: 'doable',
       icon: <FaPlus />,
       position: [4, 7]
     },
@@ -52,35 +59,40 @@ const Objectives: React.FC<ObjectivesProps> = ({
       id: 3,
       title: "Objectif 4",
       description: "Quatrième étape de votre parcours d'apprentissage", 
-      icon: <FaPlus />,
+      state: 'locked',
+      icon: <FaLock />,
       position: [5, 10]
     },
     {
       id: 4,
       title: "Objectif 5",
       description: "Cinquième objectif pour approfondir vos connaissances",
-      icon: <FaPlus />,
+      state: 'locked',
+      icon: <FaLock />,
       position: [7, 13]
     },
     {
       id: 5,
       title: "Objectif 6",
       description: "Sixième étape vers l'excellence dans votre domaine",
-      icon: <FaPlus />,
+      state: 'locked',
+      icon: <FaLock />,
       position: [9, 10]
     },
     {
       id: 6,
       title: "Objectif 7",
       description: "Septième objectif pour perfectionner vos compétences",
-      icon: <FaPlus />,
+      state: 'locked',
+      icon: <FaLock />,
       position: [10, 7]
     },
     {
       id: 7,
       title: "Objectif 8",
       description: "Dernier objectif pour compléter votre formation",
-      icon: <FaPlus />,
+      state: 'locked',
+      icon: <FaLock />,
       position: [9, 4]
     }
   ];
@@ -88,9 +100,13 @@ const Objectives: React.FC<ObjectivesProps> = ({
   const objectivePositions = objectivesData.map(obj => obj.position);
 
   const handleObjectiveClick = (position: number) => {
-    // Basculer l'affichage de la bulle
-    setActiveTooltip(activeTooltip === position ? null : position);
-    onObjectiveClick(position);
+    // Vérifier si l'objectif est cliquable (doable ou done)
+    const objective = objectivesData.find(obj => obj.id === position);
+    if (objective && objective.state !== 'locked') {
+      // Basculer l'affichage de la bulle
+      setActiveTooltip(activeTooltip === position ? null : position);
+      onObjectiveClick(position);
+    }
   };
 
   // Calculer les dimensions de la grille basées sur les positions des objectifs
@@ -120,9 +136,11 @@ const Objectives: React.FC<ObjectivesProps> = ({
       transform: 'translate(-50%, -100%)',
     };
 
+    const tooltipClass = `${styles.tooltip} ${styles[`tooltip${objective.state.charAt(0).toUpperCase() + objective.state.slice(1)}`]}`;
+
     return (
       <div 
-        className={styles.tooltip} 
+        className={tooltipClass} 
         style={tooltipStyle} 
         data-testid={`tooltip-${objective.id}`}
       >
@@ -132,7 +150,7 @@ const Objectives: React.FC<ObjectivesProps> = ({
         <div className={styles.tooltipDescription}>
           {objective.description}
         </div>
-        <div className={styles.tooltipArrow}></div>
+        <div className={`${styles.tooltipArrow} ${styles[`tooltipArrow${objective.state.charAt(0).toUpperCase() + objective.state.slice(1)}`]}`}></div>
       </div>
     );
   };
@@ -156,8 +174,9 @@ const Objectives: React.FC<ObjectivesProps> = ({
             text={""}
             icon={objectiveData.icon}
             variant="round"
+            state={objectiveData.state}
             onClick={() => handleObjectiveClick(objectiveData.id)}
-            enableSound={true}
+            enableSound={objectiveData.state !== 'locked'}
           />
         </div>
       );
