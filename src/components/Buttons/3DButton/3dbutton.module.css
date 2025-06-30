@@ -5,16 +5,106 @@
     padding: 0.75rem;
     margin: 0.5rem 0;
     border-radius: 0.625rem;
-    border: 2px solid var(--brown-900);
     /* background-color: #f0f0f0; */
-    color: var(--brown-950);
     transition: background 0.3s;
     box-sizing: border-box;
     cursor: pointer;
     transition: all ease 0.1s;
-    box-shadow: 0px 5px 0px 0px var(--brown-900);
   }
   .tdbutton:active {
     transform: translateY(5px);
     box-shadow: 0px 0px 0px 0px var(--brown-900);
+  }
+
+.tdbuttonRound {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3rem;
+    max-width: 6rem;
+    max-height: 6rem;
+    aspect-ratio: 1/1;
+    padding: .5em;
+    margin: 0.5rem;
+    border-radius: 50%;
+    transition: background 0.3s;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: all ease 0.1s;
+    font-size: 0.875rem;
+  }
+  .tdbuttonRound:active {
+    transform: translateY(5px);
+    box-shadow: 0px 0px 0px 0px var(--brown-900);
+  }
+
+/* Styles pour l'état doable (marron) */
+.tdbuttonDoable {
+  background-color: var(--brown-50);
+  border-color: var(--brown-900);
+  color: var(--brown-950);
+  box-shadow: 0px 5px 0px 0px var(--brown-900);
+}
+
+.tdbuttonDoable:hover {
+  background-color: var(--brown-100);
+}
+
+.tdbuttonDoable:active {
+  transform: translateY(5px);
+  box-shadow: 0px 0px 0px 0px var(--brown-900);
+}
+
+/* Styles pour l'état done (vert) */
+.tdbuttonDone {
+  background-color: var(--green-50);
+  border-color: var(--green-600);
+  color: var(--green-950);
+  transform: translateY(5px);
+  /* box-shadow: 0px 5px 0px 0px var(--green-600); */
+}
+
+.tdbuttonDone:hover {
+  background-color: var(--green-100);
+}
+
+.tdbuttonDone:active {
+  transform: translateY(5px);
+  box-shadow: 0px 0px 0px 0px var(--green-600);
+}
+
+/* Styles pour l'état locked (gris) */
+.tdbuttonLocked {
+  background-color: #f8f9fa;
+  border-color: #6c757d;
+  color: #6c757d;
+  box-shadow: 0px 5px 0px 0px #6c757d;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.tdbuttonLocked:hover {
+  background-color: #f8f9fa;
+  transform: none;
+  box-shadow: 0px 5px 0px 0px #6c757d;
+}
+
+.tdbuttonLocked:active {
+  transform: none;
+  box-shadow: 0px 5px 0px 0px #6c757d;
+}
+
+.tdbuttonLocked:disabled {
+  cursor: not-allowed;
+}
+
+.icon {
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+.tdbuttonRound .icon {
+    margin-right: 0;
+    margin-bottom: 0.25rem;
   }

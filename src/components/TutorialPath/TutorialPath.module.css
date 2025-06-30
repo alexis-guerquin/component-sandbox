@@ -1,0 +1,101 @@
+.tutorialContainer {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  
+  /* ----- Desktop layout ----- */
+  .desktop {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .connector {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .step {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* border: 2px solid red; */
+    /* background: white; */
+    /* color: red; */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .step:hover {
+    /* background-color: #ffecec; */
+  }
+  
+  .diamond {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--brown-900);
+    background: white;
+    transform: rotate(45deg);
+    z-index: 1;
+  }
+  
+  /* ----- Mobile layout ----- */
+  .mobile {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* ----- Responsive switch ----- */
+  @media (max-width: 768px) {
+    .desktop {
+      display: none;
+    }
+  
+    .mobile {
+      display: flex;
+    }
+  
+    .diamond {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  
+    .step {
+      position: absolute;
+      transform-origin: center;
+    }
+  
+    /* Positionnement des étapes en cercle */
+    /* .step:nth-child(1) { transform: translate(0, 0px); } */
+    .step:nth-child(2) { transform: translate(0px, -120px); }
+    .step:nth-child(3) { transform: translate(90px, -90px); }
+    .step:nth-child(4) { transform: translate(120px, 0px); }
+    .step:nth-child(5) { transform: translate(90px, 90px); }
+    .step:nth-child(6) { transform: translate(0, 120px); }
+    /* .step:nth-child(7) { transform: translate(-120px, 0); } */
+    /* .step:nth-child(8) { transform: translate(-85px, -85px); } */
+  }
