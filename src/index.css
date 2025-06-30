@@ -1,19 +1,40 @@
 :root {
   /* POMOGRIND COLOR PALETTE*/
 
+  --common-white: #ffffff;
+  --common-black: #000000;
+  --common-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+
   /* === Brown palette === */
   --brown-50: #f8f5f2;
-  --brown-100: #eae3db;
-  --brown-200: #d4c4b3;
-  --brown-300: #bea48b;
-  --brown-400: #a98467;
-  --brown-500: #a2765e;
-  --brown-600: #8e6151;
-  --brown-700: #774d46;
-  --brown-800: #63403d;
-  --brown-900: #533634;
-  --brown-950: #2d1c1b;
-  
+  --brown-100: #ede3dd;
+  --brown-200: #dbc7bc;
+  --brown-300: #c5a797;
+  --brown-400: #b6917d;
+  --brown-500: #a3775f;
+  --brown-600: #805e4c;
+  --brown-700: #5f473a;
+  --brown-800: #403028;
+  --brown-900: #2d1c1b;
+  --brown-950: #231c18;
+
+  --primary-bg-lightest: var(--brown-50);
+  --primary-bg-lightest-hover: var(--brown-100);
+  --primary-bg: var(--brown-200);
+  --primary-bg-hover: var(--brown-300);
+  --primary-bg-darker: var(--brown-400);
+  --primary-bg-darker-hover: var(--brown-500);
+  --primary-bg-dark: var(--brown-600);
+  --primary-bg-dark-hover: var(--brown-700);
+
+  --primary-text-lightest: var(--brown-200);
+  --primary-text: var(--brown-600);
+  --primary-text-dark: var(--brown-950);
+
+  --primary-border-lightest: var(--brown-100);
+  --primary-border: var(--brown-600);
+  --primary-border-dark: var(--brown-950);
+
   /* === Green palette === */
   --green-50: #f9fbf4;
   --green-100: #f2f5e8;
@@ -26,4 +47,22 @@
   --green-800: #596a36;
   --green-900: #4e5b34;
   --green-950: #283017;
+
+  --secondary-bg-lightest: var(--green-50);
+  --secondary-bg-lightest-hover: var(--green-100);
+  --secondary-bg: var(--green-200);
+  --secondary-bg-hover: var(--green-300);
+  --secondary-bg-darker: var(--green-400);
+  --secondary-bg-darker-hover: var(--green-500);
+  --secondary-bg-dark: var(--green-600);
+  --secondary-bg-dark-hover: var(--green-700);
+
+  --secondary-text-lightest: var(--green-200);
+  --secondary-text: var(--green-600);
+  --secondary-text-dark: var(--green-950);
+
+  --secondary-border-lightest: var(--green-100);
+  --secondary-border: var(--green-600);
+  --secondary-border-dark: var(--green-950);
+
 }
