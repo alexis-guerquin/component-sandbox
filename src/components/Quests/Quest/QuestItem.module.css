@@ -7,31 +7,31 @@
     border-radius: 0.625rem;
     border: 2px solid;
     background-color: #f0f0f0;
-    color: var(--brown-950);
+    color: var(--primary-text-dark);
     transition: background 0.3s;
     box-sizing: border-box;
   }
   
   .quest.done {
-    background-color: var(--brown-400);
-    border-color: var(--brown-600);
+    background-color: var(--primary-bg-darker);
+    border-color: var(--primary-border-dark);
     cursor: pointer;
     transition: all ease 0.1s;
-    box-shadow: 0px 5px 0px 0px var(--brown-600);
+    box-shadow: 0px 5px 0px 0px var(--primary-shadow);
   }
 
   .quest.done:active {
     transform: translateY(5px);
-    box-shadow: 0px 0px 0px 0px var(--brown-600);
+    box-shadow: 0px 0px 0px 0px var(--primary-shadow);
   }
   
   .quest.pending {
-    background-color: var(--green-200);
-    color: var(--green-600);
+    background-color: var(--secondary-bg);
+    color: var(--secondary-text);
   }
 
   .quest.pending img {
-    filter: brightness(0) saturate(100%) invert(88%) sepia(11%) saturate(1277%) hue-rotate(28deg) brightness(86%) contrast(83%);
+    filter: brightness(0) saturate(100%) invert(88%) sepia(11%) saturate(1277%) hue-rotate(28deg) brightness(78%) contrast(83%);
   }
   
   .icon {
@@ -86,9 +86,9 @@
     height: 100%;
     border-radius: 0.25rem;
     transition: width 0.3s;
-    background-color: var(--green-600);
+    background-color: var(--secondary-bg-dark);
   }
 
   .quest.done .fill {
-    background-color: var(--brown-900);
+    background-color: var(--primary-text-dark);
   }

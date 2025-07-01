@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: white;
+  color: var(--common-white);
 }
 
 .quests h3 {
@@ -65,10 +65,10 @@
   font-size: 1.25rem;
 }
 .basic h3 {
-  color: white;
+  color: var(--common-white);
 }
 .active h3 {
-  color: white;
+  color: var(--common-white);
 }
 
 .content ul {
@@ -84,13 +84,13 @@
 }
 
 .basic {
-  border-color: white;
-  background-color: var(--green-400);
+  border-color: var(--common-white);
+  background-color: var(--secondary-bg-darker);
 }
 
 .active {
-  border-color: var(--brown-900);
-  background-color: var(--brown-300);
+  border-color: var(--primary-border-dark);
+  background-color: var(--primary-bg);
 }
 .active img {
   filter: brightness(0) saturate(100%) invert(6%) sepia(7%) saturate(5278%) hue-rotate(316deg) brightness(97%) contrast(86%);
@@ -107,7 +107,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #fff;
+  color: var(--common-white);
   z-index: 2;
   padding: 0.25rem;
   line-height: 1;
@@ -130,7 +130,7 @@
 
 .globalFill {
   height: 100%;
-  background: white;
+  background: var(--common-white);
   border-radius: 0.25rem;
   transition: width 0.3s ease;
 }
@@ -146,6 +146,5 @@
 }
 
 .completed {
-  /* background-color: var(--green-300); */
-  border-color: var(--green-800);
+  border-color: var(--secondary-border-dark);
 }
