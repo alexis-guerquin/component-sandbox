@@ -47,7 +47,7 @@ const TutorialPath: React.FC = () => {
           <path
             d="M 40 200 Q 200 -40 360 200"
             fill="none"
-            stroke="var(--brown-900)"
+            stroke="var(--primary-border-dark)"
             strokeWidth="4"
             strokeDasharray={pathLength}
             strokeDashoffset={pathLength * (1 - progressStep / (steps.length - 1))}
