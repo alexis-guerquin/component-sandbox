@@ -132,6 +132,39 @@
   }
 }
 
+/* Animation de pulsation pour les boutons doable */
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+}
+
+/* Cercle de pulsation pour les boutons doable */
+.pulseRing {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 5px solid var(--primary-border-dark);
+  border-radius: 50%;
+  animation: pulseRing 2s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Arrêter l'animation quand le tooltip est ouvert */
+.pulseRing.paused {
+  animation-play-state: paused;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .objectiveButton {
@@ -142,6 +175,11 @@
     max-width: 240px;
     font-size: 13px;
     padding: 10px 14px;
+  }
+  
+  .pulseRing {
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -154,5 +192,10 @@
     max-width: 200px;
     font-size: 12px;
     padding: 8px 12px;
+  }
+  
+  .pulseRing {
+    width: 45px;
+    height: 45px;
   }
 } 

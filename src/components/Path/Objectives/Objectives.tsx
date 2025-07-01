@@ -51,8 +51,8 @@ const Objectives: React.FC<ObjectivesProps> = ({
       id: 2,
       title: "Objectif 3",
       description: "Troisième objectif pour progresser dans votre formation",
-      state: 'doable',
-      icon: <FaPlus />,
+      state: 'locked',
+      icon: <FaLock />,
       position: [4, 7]
     },
     {
@@ -174,6 +174,13 @@ const Objectives: React.FC<ObjectivesProps> = ({
           className={styles.objectiveButton}
           data-testid={`objective-button-${objectiveData.id}`}
         >
+          {/* Cercle de pulsation pour les boutons doable */}
+          {objectiveData.state === 'doable' && (
+            <div 
+              className={`${styles.pulseRing} ${activeTooltip === objectiveData.id ? styles.paused : ''}`}
+              data-testid={`pulse-ring-${objectiveData.id}`}
+            />
+          )}
           <ThreeDButton
             text={""}
             icon={objectiveData.icon}
