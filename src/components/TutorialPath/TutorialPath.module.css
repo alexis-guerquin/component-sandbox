@@ -51,7 +51,7 @@
     position: absolute;
     width: 60px;
     height: 60px;
-    border: 2px solid var(--brown-900);
+    border: 2px solid var(--primary-border-dark);
     background: white;
     transform: rotate(45deg);
     z-index: 1;

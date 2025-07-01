@@ -100,12 +100,12 @@ const Objectives: React.FC<ObjectivesProps> = ({
   const objectivePositions = objectivesData.map(obj => obj.position);
 
   const handleObjectiveClick = (position: number) => {
-    // Vérifier si l'objectif est cliquable (doable ou done)
     const objective = objectivesData.find(obj => obj.id === position);
-    if (objective && objective.state !== 'locked') {
-      // Basculer l'affichage de la bulle
+    if (objective) {
       setActiveTooltip(activeTooltip === position ? null : position);
-      onObjectiveClick(position);
+      if (objective.state !== 'locked') {
+        onObjectiveClick(position);
+      }
     }
   };
 
@@ -138,6 +138,10 @@ const Objectives: React.FC<ObjectivesProps> = ({
 
     const tooltipClass = `${styles.tooltip} ${styles[`tooltip${objective.state.charAt(0).toUpperCase() + objective.state.slice(1)}`]}`;
 
+    const tooltipDescription = objective.state === 'locked' 
+      ? "Termine toutes les étapes précédentes pour débloquer celui-ci"
+      : objective.description;
+
     return (
       <div 
         className={tooltipClass} 
@@ -148,7 +152,7 @@ const Objectives: React.FC<ObjectivesProps> = ({
           {objective.title}
         </div>
         <div className={styles.tooltipDescription}>
-          {objective.description}
+          {tooltipDescription}
         </div>
         <div className={`${styles.tooltipArrow} ${styles[`tooltipArrow${objective.state.charAt(0).toUpperCase() + objective.state.slice(1)}`]}`}></div>
       </div>

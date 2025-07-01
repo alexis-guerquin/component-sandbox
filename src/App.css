@@ -10,7 +10,7 @@
 }
 
 .daily-missions {
-  background-color: var(--brown-200);
+  background-color: var(--primary-bg);
   width: 300px;
   height: 400px;
   margin-left: 100px;
@@ -29,7 +29,7 @@
 }
 
 .tutorial-path {
-  background-color: var(--brown-200);
+  background-color: var(--primary-bg);
   width: auto;
   height: auto;
   margin-left: 10px;
@@ -40,5 +40,5 @@
   height: fit-content;
   min-height: 400px;
   margin-left: 10px;
-  background-color: var(--brown-200);
+  background-color: var(--primary-bg);
 }

@@ -46,7 +46,7 @@ const ThreeDButton: React.FC<ThreeDButtonProps> = ({
     <button
       className={buttonClass}
       onClick={handleClick}
-      disabled={state === 'locked'}
+      // disabled={state === 'locked'}
     >
       {renderIcon()}
       {text}
