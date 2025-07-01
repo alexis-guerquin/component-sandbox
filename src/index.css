@@ -32,8 +32,12 @@
   --primary-text-dark: var(--brown-950);
 
   --primary-border-lightest: var(--brown-100);
-  --primary-border: var(--brown-600);
-  --primary-border-dark: var(--brown-950);
+  --primary-border: var(--brown-500);
+  --primary-border-dark: var(--brown-900);
+
+  --primary-shadow-lightest: var(--brown-400);
+  --primary-shadow: var(--brown-600);
+  --primary-shadow-dark: var(--brown-800);
 
   /* === Green palette === */
   --green-50: #f9fbf4;
@@ -62,7 +66,41 @@
   --secondary-text-dark: var(--green-950);
 
   --secondary-border-lightest: var(--green-100);
-  --secondary-border: var(--green-600);
-  --secondary-border-dark: var(--green-950);
+  --secondary-border: var(--green-500);
+  --secondary-border-dark: var(--green-900);
+
+  /* === Gray palette === */
+  --gray-50: #f8f9fa;
+  --gray-100: #ecf0f1;
+  --gray-200: #dee2e6;
+  --gray-300: #bdc3c7;
+  --gray-400: #6c757d;
+  --gray-500: #495057;
+  --gray-600: #343a40;
+  --gray-700: #212529;
+  --gray-800: #1a1d20;
+  --gray-900: #0d1117;
+  --gray-950: #000000;
+
+  --gray-bg-lightest: var(--gray-50);
+  --gray-bg-lightest-hover: var(--gray-100);
+  --gray-bg: var(--gray-200);
+  --gray-bg-hover: var(--gray-300);
+  --gray-bg-darker: var(--gray-400);
+  --gray-bg-darker-hover: var(--gray-500);
+  --gray-bg-dark: var(--gray-600);
+  --gray-bg-dark-hover: var(--gray-700);
+
+  --gray-text-lightest: var(--gray-200);
+  --gray-text: var(--gray-600);
+  --gray-text-dark: var(--gray-950);
+
+  --gray-border-lightest: var(--gray-100);
+  --gray-border: var(--gray-500);
+  --gray-border-dark: var(--gray-900);
+
+  --gray-shadow-lightest: var(--gray-400);
+  --gray-shadow: var(--gray-600);
+  --gray-shadow-dark: var(--gray-800);
 
 }
