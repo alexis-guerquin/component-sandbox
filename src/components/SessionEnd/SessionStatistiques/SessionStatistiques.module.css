@@ -1,0 +1,209 @@
+.container {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  color: var(--secondary-text-dark);
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.statsGrid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* XP Card */
+.xpCard {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: var(--secondary-bg-lightest);
+  border: 3px solid var(--secondary-border);
+  border-radius: 1rem;
+  box-shadow: 0 6px 0 0 var(--secondary-border-dark);
+  transform: rotateX(10deg);
+  transition: all 0.3s ease;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.xpCard:hover {
+  transform: rotateX(10deg) translateY(-2px);
+  box-shadow: 0 8px 0 0 var(--secondary-border-dark);
+}
+
+.xpIcon {
+  font-size: 2.5rem;
+  margin-right: 1rem;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.xpContent {
+  flex: 1;
+}
+
+.xpTitle {
+  margin: 0 0 0.5rem 0;
+  color: var(--secondary-text-dark);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.xpValue {
+  margin: 0;
+  color: var(--secondary-text-dark);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Progressions */
+.progressionsContainer {
+  background-color: var(--secondary-bg-lightest);
+  border: 3px solid var(--secondary-border-dark);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 6px 0 0 var(--secondary-border-dark);
+  transform: rotateX(5deg);
+}
+
+.progressionsTitle {
+  margin: 0 0 1rem 0;
+  color: var(--secondary-text-dark);
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.progressionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.progressionItem {
+  background-color: var(--common-white);
+  border: 2px solid var(--secondary-border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 3px 0 0 var(--secondary-border-dark);
+  transition: all 0.2s ease;
+}
+
+.progressionItem:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 0 0 var(--secondary-border-dark);
+}
+
+.progressionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.progressionName {
+  color: var(--secondary-text-dark);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.progressionPercentage {
+  color: var(--secondary-text-dark);
+  font-weight: bold;
+  font-size: 0.9rem;
+  background-color: var(--secondary-bg-lightest);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--secondary-border);
+}
+
+.progressBarContainer {
+  width: 100%;
+  height: 0.75rem;
+  background-color: var(--gray-bg);
+  border-radius: 0.375rem;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--gray-border);
+}
+
+.progressBar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--secondary-bg), var(--secondary-bg-darker));
+  border-radius: 0.375rem;
+  transition: width 0.8s ease-out;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.progressionDetails {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.progressionProgress {
+  color: var(--secondary-text-dark);
+  font-weight: bold;
+}
+
+.progressionMax {
+  color: var(--gray-text);
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .xpCard {
+    padding: 1rem;
+  }
+  
+  .xpIcon {
+    font-size: 2rem;
+  }
+  
+  .xpValue {
+    font-size: 1.25rem;
+  }
+  
+  .progressionsContainer {
+    padding: 1rem;
+  }
+  
+  .progressionItem {
+    padding: 0.75rem;
+  }
+}
+
+/* CountUp Animation Styles */
+.countUpValue {
+  display: inline-block;
+  font-weight: bold;
+  color: var(--secondary-text-dark);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.countUpPercentage {
+  display: inline-block;
+  font-weight: bold;
+  color: var(--secondary-text-dark);
+}
+
+.countUpProgress {
+  display: inline-block;
+  font-weight: bold;
+  color: var(--secondary-text-dark);
+} 
