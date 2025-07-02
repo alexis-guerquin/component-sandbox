@@ -1,0 +1,48 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sectionTitle {
+  color: var(--primary-text-dark);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.sectionDescription {
+  color: var(--gray-text);
+  text-align: center;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(0.5rem, 2vw, 1rem);
+  flex: 1;
+  min-height: 0;
+  align-content: start;
+}
+
+@keyframes cardAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.8) rotateX(20deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-5px) scale(1.05) rotateX(10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
