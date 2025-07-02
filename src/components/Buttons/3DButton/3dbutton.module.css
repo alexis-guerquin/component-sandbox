@@ -5,7 +5,6 @@
     padding: 0.75rem;
     margin: 0.5rem 0;
     border-radius: 0.625rem;
-    /* background-color: #f0f0f0; */
     transition: background 0.3s;
     box-sizing: border-box;
     cursor: pointer;
@@ -78,21 +77,12 @@
   border-color: var(--gray-border);
   color: var(--gray-text);
   box-shadow: 0px 5px 0px 0px var(--gray-shadow);
-  /* cursor: not-allowed; */
-  /* opacity: 0.7; */
-}
-
-.tdbuttonLocked:hover {
 }
 
 .tdbuttonLocked:active {
-  /* transform: none; */
-  box-shadow: 0px 5px 0px 0px var(--gray-border);
+  transform: rotateX(20deg) translateY(-2px);
+  box-shadow: 0px 5px 0px 0px var(--gray-shadow);
 }
-
-/* .tdbuttonLocked:disabled { */
-  /* cursor: not-allowed; */
-/* } */
 
 .icon {
     margin-right: 0.5rem;
