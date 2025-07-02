@@ -3,6 +3,7 @@ import DailyQuest from './components/Quests/DailyQuest/DailyQuest';
 import { QuestProvider } from './contexts/QuestContext';
 import ComponentTester from './components/Testers/ComponentTester/ComponentTester';
 import SoundTester from './components/Testers/SoundTester/SoundTester';
+import SessionEndTester from './components/Testers/SessionEndTester/SessionEndTester';
 import TutorialPath from './components/TutorialPath/TutorialPath';
 import ThreeDButton from './components/Buttons/3DButton/3dbutton';
 import { FaPlus } from 'react-icons/fa';
@@ -16,6 +17,7 @@ function App() {
         <div className="tester">
           <ComponentTester />
           <SoundTester />
+          <SessionEndTester />
           <div className="buttons">
             <ThreeDButton text="Default" enableSound={true} />
             <ThreeDButton text="Round" variant="round" enableSound={true}/>
