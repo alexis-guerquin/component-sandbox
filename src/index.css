@@ -103,4 +103,38 @@
   --gray-shadow: var(--gray-600);
   --gray-shadow-dark: var(--gray-800);
 
+  /* === Tertiary palette === */
+  --tertiary-a0: #ffffff;
+  --tertiary-a10: #fff7dd;
+  --tertiary-a20: #ffeebb;
+  --tertiary-a30: #fee699;
+  --tertiary-a40: #fbde76;
+  --tertiary-a50: #f7d64f;
+  --tertiary-a60: #c1a741;
+  --tertiary-a70: #8d7a33;
+  --tertiary-a80: #5c5025;
+  --tertiary-a90: #302a17;
+  --tertiary-a100: #000000;
+
+  --tertiary-bg-lightest: var(--tertiary-a10);
+  --tertiary-bg-lightest-hover: var(--tertiary-a20);
+  --tertiary-bg: var(--tertiary-a30);
+  --tertiary-bg-hover: var(--tertiary-a40);
+  --tertiary-bg-darker: var(--tertiary-a50);
+  --tertiary-bg-darker-hover: var(--tertiary-a60);
+  --tertiary-bg-dark: var(--tertiary-a70);
+  --tertiary-bg-dark-hover: var(--tertiary-a80);
+
+  --tertiary-text-lightest: var(--tertiary-a20);
+  --tertiary-text: var(--tertiary-a60);
+  --tertiary-text-dark: var(--tertiary-a100);
+
+  --tertiary-border-lightest: var(--tertiary-a10);
+  --tertiary-border: var(--tertiary-a50);
+  --tertiary-border-dark: var(--tertiary-a90);
+
+  --tertiary-shadow-lightest: var(--tertiary-a40);
+  --tertiary-shadow: var(--tertiary-a60);
+  --tertiary-shadow-dark: var(--tertiary-a80);
+
 }
