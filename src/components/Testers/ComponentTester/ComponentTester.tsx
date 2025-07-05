@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useQuestActions } from '../../../hooks/useQuestActions';
+import { useTheme } from '../../../hooks/useTheme';
 // import { useQuest } from '../../contexts/QuestContext';
 import styles from './ComponentTester.module.css';
 
 const ComponentTester: React.FC = () => {
   const questActions = useQuestActions();
+  const { theme, toggleTheme } = useTheme();
   const [activeTab] = useState<'actions' | 'progress' | 'utilities'>('actions');
 
   const handleLogin = () => {
@@ -39,6 +41,10 @@ const ComponentTester: React.FC = () => {
     {
       label: 'Réinitialiser tout',
       onClick: handleReset,
+    },
+    {
+      label: `Basculer vers le mode ${theme === 'light' ? 'sombre' : 'clair'}`,
+      onClick: toggleTheme,
     }
   ];
 
@@ -48,6 +54,10 @@ const ComponentTester: React.FC = () => {
         {activeTab === 'actions' && (
           <div className={styles.actionssection}>
             <h3>Actions disponibles</h3>
+            <div className={styles.themeinfo}>
+              <p>Thème actuel : <strong>{theme === 'light' ? 'Clair' : 'Sombre'}</strong></p>
+              <p>Valeur localStorage : <code>{localStorage.getItem('theme') || 'non défini'}</code></p>
+            </div>
             <div className={styles.actiongrid}>
               {actionButtons.map((button, index) => (
                 <button
