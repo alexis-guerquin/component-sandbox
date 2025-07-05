@@ -1,16 +1,10 @@
 import React from 'react';
 import styles from './SessionStatistiques.module.css';
 import CountUp from '../../Animations/CountUp/CountUp';
+import type { SessionData } from '../../../types/TrophyTypes';
 
 interface SessionStatistiquesProps {
-  sessionData: {
-    xpGained: number;
-    progressions: Array<{
-      name: string;
-      progress: number;
-      maxProgress: number;
-    }>;
-  };
+  sessionData: SessionData;
 }
 
 const SessionStatistiques: React.FC<SessionStatistiquesProps> = ({ sessionData }) => {
@@ -27,37 +21,37 @@ const SessionStatistiques: React.FC<SessionStatistiquesProps> = ({ sessionData }
           <div className={styles.xpContent}>
             <h4 className={styles.xpTitle}>XP Gagné</h4>
             <p className={styles.xpValue}>
-              +<CountUp 
+              + <CountUp 
                 to={xpGained} 
                 from={0} 
                 duration={1.5} 
                 delay={0.2}
                 separator=" "
                 className={styles.countUpValue}
-              /> XP
+              />
             </p>
           </div>
         </div>
         <div className={styles.progressionsContainer}>
-          <h4 className={styles.progressionsTitle}>Progression</h4>
-          <div className={styles.progressionsList}>
+          <h4 className={styles.progressionsTitle}>Progression vers les Trophées</h4>
+          <div className={styles.trophyGrid}>
             {progressions.map((progression, index) => {
               const percentage = Math.round((progression.progress / progression.maxProgress) * 100);
+              const { trophy } = progression;
               
               return (
-                <div key={index} className={styles.progressionItem}>
-                  <div className={styles.progressionHeader}>
-                    <span className={styles.progressionName}>{progression.name}</span>
-                    <span className={styles.progressionPercentage}>
-                      <CountUp 
-                        to={percentage} 
-                        from={0} 
-                        duration={1} 
-                        delay={0.5 + (index * 0.1)}
-                        className={styles.countUpPercentage}
-                      />%
-                    </span>
+                <div 
+                  key={index} 
+                  className={styles.trophyCard}
+                >
+                  <div className={styles.trophyIcon}>
+                    <img 
+                      src={trophy.icon} 
+                      alt={trophy.name}
+                      className={styles.trophyImage}
+                    />
                   </div>
+                  <h5 className={styles.trophyName}>{trophy.name}</h5>
                   <div className={styles.progressBarContainer}>
                     <div 
                       className={styles.progressBar}
@@ -65,8 +59,8 @@ const SessionStatistiques: React.FC<SessionStatistiquesProps> = ({ sessionData }
                     />
                   </div>
                   <div className={styles.progressionDetails}>
-                    <span className={styles.progressionProgress}>
-                      +<CountUp 
+                    <span className={styles.progressionCurrent}>
+                      <CountUp 
                         to={progression.progress} 
                         from={0} 
                         duration={1} 
@@ -75,8 +69,9 @@ const SessionStatistiques: React.FC<SessionStatistiquesProps> = ({ sessionData }
                         className={styles.countUpProgress}
                       />
                     </span>
+                    <span className={styles.progressionSeparator}>/</span>
                     <span className={styles.progressionMax}>
-                      / {progression.maxProgress}
+                      {progression.maxProgress}
                     </span>
                   </div>
                 </div>

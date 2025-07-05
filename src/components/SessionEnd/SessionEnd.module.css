@@ -16,9 +16,8 @@
 }
 
 .modalContent {
-  background-color: var(--secondary-bg);
+  background-color: var(--var-background);
   border-radius: 1rem;
-  box-shadow: var(--common-box-shadow);
   max-width: 90vw;
   max-height: 90vh;
   width: 90vw;
@@ -32,14 +31,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  background-color: var(--secondary-bg-hover);
-  border-bottom: 3px solid var(--secondary-border-dark);
-  box-shadow: 0 4px 0 0 var(--secondary-border-dark);
+  background-color: var(--var-surface);
+  border-bottom: 3px solid var(--var-border);
+  box-shadow: 0 4px 0 0 var(--var-background);
 }
 
 .modalTitle {
   margin: 0;
-  color: var(--secondary-text-dark);
+  color: var(--var-text-secondary);
   font-size: 1.5rem;
   font-weight: bold;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -49,7 +48,7 @@
   background: none;
   border: none;
   font-size: 2rem;
-  color: var(--secondary-text-dark);
+  color: var(--var-text-primary);
   cursor: pointer;
   padding: 0.25rem;
   border-radius: 50%;
@@ -59,13 +58,13 @@
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
-  background-color: var(--secondary-bg-lightest);
-  border: 2px solid var(--secondary-border-dark);
-  box-shadow: 0 3px 0 0 var(--secondary-border-dark);
+  background-color: var(--var-surface);
+  border: 2px solid var(--var-background);
+  box-shadow: 0 3px 0 0 var(--var-background);
 }
 
 .closeButton:hover {
-  background-color: var(--secondary-bg-lightest-hover);
+  /* background-color: var(--secondary-bg-lightest-hover); */
   /* transform: translateY(2px); */
   /* box-shadow: 0 1px 0 0 var(--secondary-border-dark); */
 }

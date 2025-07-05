@@ -2,18 +2,12 @@ import React from 'react';
 import styles from './SessionEnd.module.css';
 import SessionStatistiques from './SessionStatistiques/SessionStatistiques';
 import BreakSuggestion from './BreakSuggestion/BreakSuggestion';
+import type { SessionData } from '../../types/TrophyTypes';
 
 interface SessionEndProps {
   isOpen: boolean;
   onClose: () => void;
-  sessionData: {
-    xpGained: number;
-    progressions: Array<{
-      name: string;
-      progress: number;
-      maxProgress: number;
-    }>;
-  };
+  sessionData: SessionData;
 }
 
 const SessionEnd: React.FC<SessionEndProps> = ({

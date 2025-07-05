@@ -1,37 +1,18 @@
 import React, { useState } from 'react';
 import styles from './SessionEndTester.module.css';
 import SessionEnd from '../../SessionEnd';
+import { createMockSessionData } from '../../../utils/trophyUtils';
+import {
+  playSuccessSound,
+} from '../../../utils/soundUtils';
 
 const SessionEndTester: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const mockSessionData = {
-    xpGained: 50,
-    progressions: [
-      {
-        name: 'Focus Time',
-        progress: 45,
-        maxProgress: 60
-      },
-      {
-        name: 'Deep Work',
-        progress: 12,
-        maxProgress: 20
-      },
-      {
-        name: 'Learning',
-        progress: 8,
-        maxProgress: 10
-      },
-      {
-        name: 'Productivity',
-        progress: 23,
-        maxProgress: 30
-      }
-    ]
-  };
+  const mockSessionData = createMockSessionData();
 
   const handleOpenModal = () => {
+    playSuccessSound();
     setIsModalOpen(true);
   };
 
