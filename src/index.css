@@ -137,4 +137,42 @@
   --tertiary-shadow: var(--tertiary-a60);
   --tertiary-shadow-dark: var(--tertiary-a80);
 
+  /* === Theme variables (default: light) === */
+  --var-background: #FFFFFD;
+  --var-surface: #f2f3f4;
+  --var-text-primary: #1a1a1c;
+  --var-text-secondary: #5c5c5c;
+  --var-primary-button-bg: #adc178;
+  --var-primary-button-text: #ffffff;
+  --var-border: #E5E5E5;
+  --var-disabled-icon: #d3d3d3;
+
+  --dark-bg: #141F23;
+  --dark-border: #202F37;
+  --dark-text-primary: #FFFFFD;
+  --dark-text-secondary: #E5E5E5;
+}
+
+/* Dark theme overrides */
+:root[data-theme="dark"] {
+  --var-background: #141F23;
+  --var-surface: #202F37;
+  --var-text-primary: #ffffff;
+  --var-text-secondary: #c2c2c2;
+  --var-primary-button-bg: #adc178;
+  --var-primary-button-text: #000000;
+  --var-border: #202F37;
+  --var-disabled-icon: #4b4b4f;
+}
+
+/* Light theme overrides (explicit for clarity) */
+:root[data-theme="light"] {
+  --var-background: #FFFFFD;
+  --var-surface: #f2f3f4;
+  --var-text-primary: #1a1a1c;
+  --var-text-secondary: #5c5c5c;
+  --var-primary-button-bg: #adc178;
+  --var-primary-button-text: #ffffff;
+  --var-border: #E5E5E5;
+  --var-disabled-icon: #d3d3d3;
 }
