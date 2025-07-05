@@ -17,8 +17,6 @@
 
 .cardContent {
   position: relative;
-  /* z-index: 2; */
-  background: var(--common-white);
   border-radius: 1rem;
   padding: 1em;
   display: flex;
@@ -33,12 +31,23 @@
   border: 3px solid;
   box-shadow: 0 8px 0 0;
   transition: all 0.2s ease;
-  background-color: var(--secondary-bg-lightest);
+  background-color: var(--var-background);
+  color: var(--var-border);
 }
 
 .card:hover .cardContent {
   box-shadow: 0 12px 0 0;
-  background-color: var(--common-white);
+  background-color: var(--var-primary-button-bg);
+}
+.card:hover .cardContent .title {
+  color: var(--var-primary-button-text);
+}
+.card:hover .cardContent .arrow {
+  color: var(--var-primary-button-text);
+}
+
+.card:hover .cardContent .description {
+  color: var(--var-primary-button-text2);
 }
 
 .card:active .cardContent {
@@ -70,14 +79,14 @@
   margin: 0 0 clamp(0.25rem, 1vw, 0.5rem) 0;
   font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   font-weight: bold;
-  color: var(--secondary-text-dark);
+  color: var(--var-text-primary);
   line-height: 1.2;
 }
 
 .description {
   margin: 0;
   font-size: clamp(0.75rem, 2vw, 0.85rem);
-  color: var(--gray-text);
+  color: var(--var-text-secondary);
   line-height: 1.4;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -98,7 +107,7 @@
 .arrow {
   font-size: clamp(1rem, 3vw, 1.2rem);
   font-weight: bold;
-  color: var(--secondary-text-dark);
+  color: var(--var-text-secondary);
 }
 
 @keyframes float {
