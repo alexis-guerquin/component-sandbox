@@ -31,10 +31,10 @@
     cursor: pointer;
     transition: all ease 0.1s;
     font-size: 0.875rem;
-    transform: rotateX(20deg) translateY(-2px);
+    /* transform: rotateX(20deg) translateY(-2px); */
   }
   .tdbuttonRound:active {
-    transform: translateY(5px);
+    transform: translateY(3px);
     box-shadow: 0px 0px 0px 0px var(--primary-border-dark);
   }
 
