@@ -1,0 +1,236 @@
+.timer {
+  border-radius: 20px;
+  padding: 2rem;
+  color: white;
+  width: 100%;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.timerHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.timerTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.configButton {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.modeSelector {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  padding: 0.25rem;
+  backdrop-filter: blur(10px);
+}
+
+.modeButton {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.modeButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modeButton.active {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.timerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.animationContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.timeDisplay {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.timeText {
+  font-size: 3.5rem;
+  font-weight: 700;
+  display: block;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
+}
+
+.modeText {
+  font-size: 1rem;
+  opacity: 0.9;
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.controlButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  min-width: 120px;
+  justify-content: center;
+}
+
+.primaryButton {
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  color: white;
+  backdrop-filter: blur(10px);
+  border: 1px solid;
+  transition: all 0.3s ease;
+}
+
+.secondaryButton:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-1px);
+}
+
+/* Widget Styles */
+.timerWidget {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+  min-width: 120px;
+}
+
+.widgetContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.widgetControls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.widgetButton {
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.8rem;
+}
+
+.widgetButton:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timer {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .timerTitle {
+    font-size: 1.5rem;
+  }
+  
+  .timeText {
+    font-size: 2.5rem;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .controlButton {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .timerWidget {
+    top: 10px;
+    left: 10px;
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timer {
+    padding: 1rem;
+  }
+  
+  .timeText {
+    font-size: 2rem;
+  }
+  
+  .modeSelector {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .modeButton {
+    padding: 0.5rem 1rem;
+  }
+} 
