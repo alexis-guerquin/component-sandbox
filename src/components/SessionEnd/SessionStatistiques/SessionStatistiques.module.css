@@ -1,0 +1,289 @@
+.container {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  color: var(--var-text-secondary);
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.statsGrid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* XP Card */
+.xpCard {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: var(--var-surface);
+  border: 3px solid var(--var-background);
+  border-radius: 1rem;
+  box-shadow: 0 6px 0 0 var(--var-background);
+  transform: rotateX(10deg);
+  transition: all 0.3s ease;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.xpCard:hover {
+  /* transform: rotateX(10deg) translateY(-2px); */
+  /* box-shadow: 0 8px 0 0 var(--var-text-secondary); */
+}
+
+.xpIcon {
+  font-size: 2.5rem;
+  margin-right: 1rem;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.xpContent {
+  flex: 1;
+}
+
+.xpTitle {
+  margin: 0 0 0.5rem 0;
+  color: var(--var-text-secondary);
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.xpValue {
+  margin: 0;
+  color: var(--var-text-primary);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Progressions */
+.progressionsContainer {
+  /* background-color: var(--var-surface); */
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transform: rotateX(5deg);
+}
+
+.progressionsTitle {
+  margin: 0 0 1.5rem 0;
+  color: var(--var-text-secondary);
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.trophyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Trophy Card Styles */
+.trophyCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  padding: 1rem;
+  border: 2px solid var(--var-border);
+  border-radius: 1rem;
+  box-shadow: 0 4px 0 0 var(--var-border);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.trophyCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 0 0 var(--var-border);
+}
+
+.trophyIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trophyImage {
+  width: auto;
+  height: 100px;
+  object-fit: contain;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.trophyName {
+  margin: .75em 0;
+  color: var(--var-text-primary);
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 1.2;
+}
+
+.progressionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.progressionName {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.progressionPercentage {
+  font-weight: bold;
+  font-size: 0.9rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.progressBarContainer {
+  width: 100%;
+  height: 0.75rem;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progressBar {
+  height: 100%;
+  border-radius: 0.375rem;
+  transition: width 0.8s ease-out;
+}
+
+.progressBarContainer {
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--var-border);
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progressBar {
+  height: 100%;
+  background: var(--var-text-secondary);
+  border-radius: 0.25rem;
+  transition: width 0.8s ease-out;
+}
+
+.progressionDetails {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.progressionSeparator,
+.progressionMax,
+.progressionCurrent .countUpProgress {
+  color: var(--var-text-secondary);
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .xpCard {
+    padding: 1rem;
+  }
+  
+  .xpIcon {
+    font-size: 2rem;
+  }
+  
+  .xpValue {
+    font-size: 1.25rem;
+  }
+  
+  .progressionsContainer {
+    padding: 1rem;
+  }
+  
+  .trophyGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .trophyCard {
+    padding: 0.75rem;
+  }
+  
+  .trophyIcon {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .trophyImage {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .trophyName {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .progressBarContainer {
+    height: 0.4rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .progressionDetails {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .trophyGrid {
+    grid-template-columns: 1fr;
+    max-width: 200px;
+  }
+  
+  .trophyCard {
+    aspect-ratio: 1.2;
+  }
+}
+
+/* CountUp Animation Styles */
+.countUpValue {
+  display: inline-block;
+  font-weight: bold;
+  color: var(--var-text-primary);
+  /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); */
+}
+
+.countUpPercentage {
+  display: inline-block;
+  font-weight: bold;
+  color: var(--secondary-text-dark);
+}
+
+.countUpProgress {
+  display: inline-block;
+  font-weight: bold;
+  color: var(--secondary-text-dark);
+} 

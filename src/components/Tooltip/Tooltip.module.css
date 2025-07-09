@@ -1,0 +1,128 @@
+/* Styles pour la bulle de description */
+.tooltip {
+  position: absolute;
+  z-index: 1000;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  min-width: 200px;
+  max-width: 280px;
+  box-shadow: var(--common-box-shadow);
+  border: 1px solid;
+  backdrop-filter: blur(10px);
+  animation: tooltipFadeIn 0.3s ease-out;
+  transform-origin: bottom center;
+  text-align: start;
+}
+
+/* Tooltip pour l'état primary (marron) */
+.tooltipPrimary {
+  background: var(--primary-bg-lightest);
+  border-color: var(--primary-border-dark);
+  color: var(--common-white);
+}
+
+.tooltipPrimary .tooltipTitle {
+  color: var(--primary-text-dark);
+}
+
+.tooltipPrimary .tooltipDescription {
+  color: var(--primary-text);
+}
+
+/* Tooltip pour l'état secondary (vert) */
+.tooltipSecondary {
+  background: var(--secondary-bg-lightest);
+  border-color: var(--secondary-border-dark);
+  color: var(--secondary-text-dark);
+}
+
+.tooltipSecondary .tooltipTitle {
+  color: var(--secondary-text-dark);
+}
+
+.tooltipSecondary .tooltipDescription {
+  color: var(--secondary-text);
+}
+
+/* Tooltip pour l'état grey (gris) */
+.tooltipGrey {
+  background: var(--gray-bg-lightest-hover);
+  border-color: var(--gray-border);
+}
+
+.tooltipGrey .tooltipTitle {
+  color: var(--gray-text-dark);
+}
+
+.tooltipGrey .tooltipDescription {
+  color: var(--gray-text);
+}
+
+.tooltipTitle {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--gray-text);
+  font-size: 15px;
+}
+
+.tooltipDescription {
+  line-height: 1.4;
+  color: var(--gray-text);
+}
+
+.tooltipArrow {
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--primary-border-dark);
+}
+
+/* Flèche pour l'état primary (marron) */
+.tooltipArrowPrimary {
+  border-top-color: var(--primary-border-dark);
+}
+
+/* Flèche pour l'état secondary (vert) */
+.tooltipArrowSecondary {
+  border-top-color: var(--secondary-border-dark);
+}
+
+/* Flèche pour l'état grey (gris) */
+.tooltipArrowGrey {
+  border-top-color: var(--gray-border);
+}
+
+/* Animation d'apparition de la bulle */
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -100%) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%) scale(1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .tooltip {
+    max-width: 240px;
+    font-size: 13px;
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tooltip {
+    max-width: 200px;
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+} 

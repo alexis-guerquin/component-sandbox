@@ -20,118 +20,6 @@
   transition: all 0.2s ease;
 }
 
-/* Styles pour la bulle de description */
-.tooltip {
-  position: absolute;
-  z-index: 1000;
-  padding: 12px 16px;
-  border-radius: 12px;
-  font-size: 14px;
-  min-width: 200px;
-  max-width: 280px;
-  box-shadow: var(--common-box-shadow);
-  border: 1px solid;
-  backdrop-filter: blur(10px);
-  animation: tooltipFadeIn 0.3s ease-out;
-  transform-origin: bottom center;
-  text-align: start;
-}
-
-/* Tooltip pour l'état doable (marron) */
-.tooltipDoable {
-  background: var(--primary-bg-lightest);
-  border-color: var(--primary-border-dark);
-  color: var(--common-white);
-}
-
-.tooltipDoable .tooltipTitle {
-  color: var(--primary-text-dark);
-}
-
-.tooltipDoable .tooltipDescription {
-  color: var(--primary-text);
-}
-
-/* Tooltip pour l'état done (vert) */
-.tooltipDone {
-  background: var(--secondary-bg-lightest);
-  border-color: var(--secondary-border-dark);
-  color: var(--secondary-text-dark);
-}
-
-.tooltipDone .tooltipTitle {
-  color: var(--secondary-text-dark);
-}
-
-.tooltipDone .tooltipDescription {
-  color: var(--secondary-text);
-}
-
-/* Tooltip pour l'état locked (gris) */
-.tooltipLocked {
-  background: var(--gray-bg-lightest-hover);
-  border-color: var(--gray-border);
-}
-
-.tooltipLocked .tooltipTitle {
-  color: var(--gray-text-dark);
-}
-
-.tooltipLocked .tooltipDescription {
-  color: var(--gray-text);
-}
-
-.tooltipTitle {
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: var(--gray-text);
-  font-size: 15px;
-}
-
-.tooltipDescription {
-  line-height: 1.4;
-  color: var(--gray-text);
-}
-
-.tooltipArrow {
-  position: absolute;
-  bottom: -9px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 8px solid var(--primary-border-dark);
-}
-
-/* Flèche pour l'état doable (marron) */
-.tooltipArrowDoable {
-  border-top-color: var(--primary-border-dark);
-}
-
-/* Flèche pour l'état done (vert) */
-.tooltipArrowDone {
-  border-top-color: var(--secondary-border-dark);
-}
-
-/* Flèche pour l'état locked (gris) */
-.tooltipArrowLocked {
-  border-top-color: var(--gray-border);
-}
-
-/* Animation d'apparition de la bulle */
-@keyframes tooltipFadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -100%) scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -100%) scale(1);
-  }
-}
-
 /* Animation de pulsation pour les boutons doable */
 @keyframes pulseRing {
   0% {
@@ -158,9 +46,9 @@
   animation: pulseRing 2s ease-in-out infinite;
   pointer-events: none;
   z-index: 5;
+  display: none;
 }
 
-/* Arrêter l'animation quand le tooltip est ouvert */
 .pulseRing.paused {
   animation-play-state: paused;
 }
@@ -169,12 +57,6 @@
 @media (max-width: 768px) {
   .objectiveButton {
     transform: scale(0.9);
-  }
-  
-  .tooltip {
-    max-width: 240px;
-    font-size: 13px;
-    padding: 10px 14px;
   }
   
   .pulseRing {
@@ -186,12 +68,6 @@
 @media (max-width: 480px) {
   .objectiveButton {
     transform: scale(0.8);
-  }
-  
-  .tooltip {
-    max-width: 200px;
-    font-size: 12px;
-    padding: 8px 12px;
   }
   
   .pulseRing {

@@ -1,0 +1,262 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease-out;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.modalContent {
+  background-color: var(--var-background);
+  border-radius: 1rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  width: 90vw;
+  overflow: hidden;
+  animation: slideIn 0.3s ease-out;
+  transform: rotateX(5deg);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: var(--var-surface);
+  border-bottom: 3px solid var(--var-border);
+  box-shadow: 0 4px 0 0 var(--var-background);
+}
+
+.modalTitle {
+  margin: 0;
+  color: var(--var-text-secondary);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--var-text-primary);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  background-color: var(--var-surface);
+  border: 2px solid var(--var-background);
+  box-shadow: 0 3px 0 0 var(--var-background);
+}
+
+.closeButton:hover {
+  /* background-color: var(--secondary-bg-lightest-hover); */
+  /* transform: translateY(2px); */
+  /* box-shadow: 0 1px 0 0 var(--secondary-border-dark); */
+}
+
+.closeButton:active {
+  transform: translateY(3px);
+  box-shadow: none;
+}
+
+.modalBody {
+  padding: 2rem;
+  overflow-y: auto;
+  max-height: calc(90vh - 120px);
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  display: flex;
+  justify-content: center;
+}
+
+.statsSection {
+  flex: 1;
+  min-width: 0;
+}
+
+.breakSection {
+  flex: 1;
+  min-width: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) rotateX(5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(5deg);
+  }
+}
+
+/* Tablette */
+@media (max-width: 1024px) {
+  .modalContent {
+    /* width: 95vw; */
+    /* max-width: 800px; */
+    /* transform: rotateX(2deg); */
+  }
+  
+  .modalBody {
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .modalHeader {
+    padding: 1.25rem 1.75rem;
+  }
+}
+
+/* Tablette en mode portrait */
+@media (max-width: 768px) {
+  .modalOverlay {
+    padding: 0.5rem;
+  }
+  
+  .modalContent {
+    /* width: 98vw; */
+    /* max-width: none; */
+    /* transform: none; */
+    /* border-radius: 0.75rem; */
+  }
+  
+  .modalHeader {
+    padding: 1rem 1.5rem;
+  }
+  
+  .modalBody {
+    padding: 1.5rem;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .modalTitle {
+    font-size: 1.25rem;
+  }
+  
+  .closeButton {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1.75rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .modalOverlay {
+    padding: 0.25rem;
+    align-items: flex-start;
+    padding-top: 0.5rem;
+  }
+  
+  .modalContent {
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    max-height: none;
+    border-radius: 0;
+    transform: none;
+  }
+  
+  .modalHeader {
+    padding: 0.75rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .modalBody {
+    padding: 1rem;
+    gap: 1rem;
+    max-height: none;
+  }
+  
+  .modalTitle {
+    font-size: 1.125rem;
+  }
+  
+  .closeButton {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.5rem;
+  }
+}
+
+/* Très petit écran */
+@media (max-width: 320px) {
+  .modalHeader {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .modalBody {
+    padding: 0.75rem;
+  }
+  
+  .modalTitle {
+    font-size: 1rem;
+  }
+  
+  .closeButton {
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 1.25rem;
+  }
+}
+
+/* Orientation paysage sur mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .modalContent {
+    max-height: 95vh;
+  }
+  
+  .modalBody {
+    max-height: calc(95vh - 100px);
+    padding: 1rem;
+  }
+  
+  .modalHeader {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Amélioration de l'accessibilité tactile */
+@media (hover: none) and (pointer: coarse) {
+  .closeButton {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .closeButton:hover {
+    transform: none;
+  }
+  
+  .closeButton:active {
+    transform: scale(0.95);
+  }
+} 

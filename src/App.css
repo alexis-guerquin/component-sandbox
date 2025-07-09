@@ -7,6 +7,16 @@
   gap: 1px;
   /* margin-bottom: 20px; */
   text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.timer-section {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  justify-content: center;
 }
 
 .daily-missions {

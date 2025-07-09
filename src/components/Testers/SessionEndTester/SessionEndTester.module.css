@@ -1,0 +1,11 @@
+.sessionEndTester {
+  width: 200px;
+}
+
+.sessionEndTester .sessionEndTesterButton button {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
